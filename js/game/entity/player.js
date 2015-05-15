@@ -15,6 +15,8 @@ Player = function (game, rotateSpeed) {
 
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
+    this.body.immovable = true;
+
     this.game.add.existing(this);
 
 };

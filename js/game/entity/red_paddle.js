@@ -8,6 +8,7 @@ RedPaddle = function (game, rotateSpeed) {
     this.scale.setTo(randomScale, randomScale);
     this.cursors = game.input.keyboard.createCursorKeys();
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
+    this.body.immovable = true;
     this.game.add.existing(this);
 
 };

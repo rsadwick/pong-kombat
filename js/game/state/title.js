@@ -7,6 +7,7 @@ game_state.title.prototype = {
         game.load.image('title', 'assets/pongkombat.gif');
         game.load.image('paddle', 'assets/paddle.png');
         game.load.image('zone1', 'assets/zone1.png');
+        game.load.image('ball', 'assets/ball.jpg');
     },
 
     create: function () {
