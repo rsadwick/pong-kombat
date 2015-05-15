@@ -26,5 +26,9 @@ game_state.match.prototype = {
         /*for(var powerup in powerups){
             powerups[powerup].update();
         }*/
+    },
+
+     render: function () {
+        level.render();
     }
 }

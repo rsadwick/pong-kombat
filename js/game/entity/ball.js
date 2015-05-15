@@ -21,7 +21,7 @@ Ball.prototype = Object.create(Phaser.Sprite.prototype);
 Ball.prototype.constructor = Player;
 
 Ball.prototype.create = function(){
-    this.body.velocity.setTo(200, 200);
+    this.body.velocity.setTo(100, 100);
     this.body.collideWorldBounds = true;
     this.body.bounce.setTo(1, 1);
 }

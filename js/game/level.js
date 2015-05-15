@@ -40,28 +40,27 @@ Level.prototype.update = function () {
     //collision
     this.game.physics.arcade.collide(this.player, this.ball, this.onBounce, null, true);
     this.game.physics.arcade.collide(this.enemy, this.ball, this.onBounce, null, true);
-
-    if (this.ball.alive && this.ball.body.velocity.x > this.game.width / 2) {
-        this.game.add.tween(this.enemy).to({ y: this.ball.body.y }, 800, Phaser.Easing.Quadratic.Out, true);
+    if (this.ball.alive && this.ball.body.velocity.x >= 100) {
+        this.game.add.tween(this.enemy).to({ y: this.ball.body.y }, this.enemy.getTrackSpeed(), Phaser.Easing.Quadratic.Out, true);
     }
 };
 
 Level.prototype.onBounce = function (paddle, ball) {
     var diff = 0;
-    if (ball.y < paddle.y) {
+    if (ball.x < paddle.x) {
         //  Ball is on the left-hand side of the paddle
-        diff = paddle.y - ball.y;
-        ball.body.velocity.y = (-10 * diff);
+        diff = paddle.x - ball.x;
+        ball.body.velocity.x = (-5 * diff);
     }
-    else if (ball.y > paddle.y) {
+    else if (ball.x > paddle.x) {
         //  Ball is on the right-hand side of the paddle
-        diff = ball.y - paddle.y;
-        ball.body.velocity.y = (10 * diff);
+        diff = ball.x - paddle.x;
+        ball.body.velocity.x = (5 * diff);
     }
     else {
         //  Ball is perfectly in the middle
         //  Add a little random X to stop it bouncing straight up!
-        ball.body.velocity.y = 2 + Math.random() * 8;
+        ball.body.velocity.x = 2 + Math.random() * 8;
     }
 };
 
@@ -69,3 +68,7 @@ Level.prototype.onBounce = function (paddle, ball) {
 Level.prototype.dispose = function () {
     //goodbye
 };
+
+Level.prototype.render = function(){
+   // this.game.debug.bodyInfo(this.ball, 32, 32);
+}
