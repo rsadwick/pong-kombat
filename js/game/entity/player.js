@@ -13,7 +13,6 @@ Player = function (game, rotateSpeed) {
 
     this.cursors = game.input.keyboard.createCursorKeys();
 
-    this.game.physics.startSystem(Phaser.Physics.ARCADE);
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
     this.game.add.existing(this);
@@ -47,5 +46,3 @@ Player.prototype.update = function() {
         //player.frame = 4;
     }
 };
-
-function preload() {}
