@@ -1,18 +1,22 @@
 Player = function (game, rotateSpeed) {
+    Phaser.Sprite.call(this, game, game.width / 9, game.height / 2, 'paddle');
 
-    //  We call the Phaser.Sprite passing in the game reference
-    //  We're giving it a random X/Y position here, just for the sake of this demo - you could also pass the x/y in the constructor
-    Phaser.Sprite.call(this, game, game.world.randomX, game.world.randomY, 'paddle');
+    this.game = game
 
     this.anchor.setTo(0.5, 0.5);
 
     this.rotateSpeed = rotateSpeed;
 
-    var randomScale = 0.1 + Math.random();
+    var randomScale = 0.5;
 
     this.scale.setTo(randomScale, randomScale);
 
-    game.add.existing(this);
+    this.cursors = game.input.keyboard.createCursorKeys();
+
+    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    this.game.physics.enable(this, Phaser.Physics.ARCADE);
+
+    this.game.add.existing(this);
 
 };
 
@@ -21,9 +25,27 @@ Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
 
-    //  Automatically called by World.update
     this.angle += this.rotateSpeed;
 
+    //  Reset the players velocity (movement)
+    this.body.velocity.y = 0;
+
+    if (this.cursors.up.isDown)
+    {
+        //  Move up
+        this.body.velocity.y = -150;
+    }
+    else if (this.cursors.down.isDown)
+    {
+        //  Move down
+        this.body.velocity.y = 150;
+    }
+    else
+    {
+        //  Stand still
+        //player.animations.stop();
+        //player.frame = 4;
+    }
 };
 
 function preload() {}

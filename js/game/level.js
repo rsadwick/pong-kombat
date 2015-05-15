@@ -13,24 +13,16 @@ var Level = function (game) {
     Level.prototype.create = function () {
 
         //events
-       // this.game.events.onPlayerSomething.add(this.doSomething, this);
-
+        // this.game.events.onPlayerSomething.add(this.doSomething, this);
         this.background = this.game.add.tileSprite(0, 0, 320, 200, 'zone1');
 
-        this.player = new Player(this.game, 100);
-        //this.player.create();
+        //create player
+        this.player = new Player(this.game, 2);
     };
 
     Level.prototype.update = function () {
 
         this.player.update();
-
-        //background logic:
-        /*if(!this.player.didSomething())
-            this.background.tilePosition.x -= 0.7;
-        else
-            this.background.tilePosition.x += 0.3;*/
-
         //collision
         //this.game.physics.arcade.collide(this.player, this.ball, this.onBounce, null, this);
 
