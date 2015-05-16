@@ -6,9 +6,9 @@ Enemy.prototype.constructor = Player;
 Enemy.prototype.update = function() {};
 
 Enemy.prototype.moveUp = function(){
-    this.body.velocity.y = 90;
+    this.body.velocity.y = 390;
 }
 
 Enemy.prototype.moveDown = function(){
-    this.body.velocity.y = -90;
+    this.body.velocity.y = -390;
 }

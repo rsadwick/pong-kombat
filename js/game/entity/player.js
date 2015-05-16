@@ -1,5 +1,5 @@
 Player = function (game, rotateSpeed) {
-    Phaser.Sprite.call(this, game, game.width / 9, game.height / 2, 'paddle');
+    Phaser.Sprite.call(this, game, 10, game.height / 2, 'paddle');
 
     this.game = game
 
@@ -7,15 +7,15 @@ Player = function (game, rotateSpeed) {
 
     this.rotateSpeed = rotateSpeed;
 
-    var randomScale = 0.5;
-
-    this.scale.setTo(randomScale, randomScale);
+    this.scale.setTo(0.1, 0.3);
 
     this.cursors = game.input.keyboard.createCursorKeys();
 
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
 
     this.body.immovable = true;
+    this.body.mass = 40;
+    this.speed = 200;
 
     this.game.add.existing(this);
 
@@ -34,12 +34,12 @@ Player.prototype.update = function() {
     if (this.cursors.up.isDown)
     {
         //  Move up
-        this.body.velocity.y = -150;
+        this.body.velocity.y = -this.speed;
     }
     else if (this.cursors.down.isDown)
     {
         //  Move down
-        this.body.velocity.y = 150;
+        this.body.velocity.y = this.speed;
     }
     else
     {
