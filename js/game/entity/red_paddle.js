@@ -5,12 +5,12 @@ RedPaddle = function (game, rotateSpeed) {
 
     this.rotateSpeed = rotateSpeed;
     this.scale.setTo(0.1, 0.3);
-    this.cursors = game.input.keyboard.createCursorKeys();
     this.game.physics.enable(this, Phaser.Physics.ARCADE);
     this.body.immovable = true;
     this.body.collideWorldBounds = false;
 
     this.trackSpeed = 60;
+    this.speed = 1000;
 
     this.game.add.existing(this);
 

@@ -50,23 +50,7 @@ Level.prototype.update = function () {
 };
 
 Level.prototype.onBounce = function (paddle, ball) {
-    //ball.body.velocity.x = 900;
-    /*var diff = 0;
-    if (ball.x < paddle.x) {
-        //  Ball is on the left-hand side of the paddle
-        diff = paddle.x - ball.x;
-        ball.body.velocity.x = (-10 * diff);
-    }
-    else if (ball.x > paddle.x) {
-        //  Ball is on the right-hand side of the paddle
-        diff = ball.x - paddle.x;
-        ball.body.velocity.x = (10 * diff);
-    }
-    else {
-        //  Ball is perfectly in the middle
-        //  Add a little random X to stop it bouncing straight up!
-        ball.body.velocity.x = 2 + Math.random() * 8;
-    }*/
+
 };
 
 

@@ -28,23 +28,18 @@ Player.prototype.update = function() {
 
     this.angle += this.rotateSpeed;
 
-    //  Reset the players velocity (movement)
     this.body.velocity.y = 0;
 
     if (this.cursors.up.isDown)
     {
-        //  Move up
         this.body.velocity.y = -this.speed;
     }
     else if (this.cursors.down.isDown)
     {
-        //  Move down
         this.body.velocity.y = this.speed;
     }
     else
     {
-        //  Stand still
-        //player.animations.stop();
-        //player.frame = 4;
+       //stationary if needed
     }
 };
